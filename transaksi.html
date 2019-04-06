@@ -1,0 +1,107 @@
+<?php
+	include('koneksi.php');
+	$QueryString="select * from transaksi_buku";
+	$SQL=mysqli_query($connect,$QueryString);
+?>
+<HTML>
+<HEAD>
+<title>good</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</HEAD>
+<style>
+body {
+    background-image: url("save.jpg");
+}
+</style>
+<BODY>  
+<SCRIPT language="JavaScript">
+<!--
+function hitungtotal()
+{
+ var judul = (document.fform.ijudul.value);
+ var kodebuku = (document.fform.ikodebuku.value);
+ var jumlah = parseFloat (document.fform.ijumlah.value);
+ var bayar = parseFloat(document.fform.ibayar.value);
+ var ht = 0.0;
+ var sub = 0.0;
+ var diskon =0.0;
+ var total =0.0;
+ var kembalian = 0.0;
+
+ if (kodebuku == "001") {
+	ht = 35000;
+}
+ else if(kodebuku == "002"){		
+	ht = 88000;
+}
+ else
+ {
+	ht = 100000;
+}
+
+ sub = jumlah*ht;
+
+ if (document.fform.imember.checked==true)
+ {
+  diskon =0.10*sub;
+ }
+ else
+ {
+  diskon=0.0; 
+ }
+
+ total = sub-diskon;
+ kembalian = bayar - total;
+ document.fform.obuku.value=eval(ht);
+ document.fform.osub.value=eval(sub);
+ document.fform.odiskon.value=eval(diskon);
+ document.fform.ototal.value=eval(total);
+ document.fform.okembalian.value=eval(kembalian);
+ 
+ // gunakan untuk mengecek !!! alert (total);
+}
+//--></SCRIPT>
+<FORM NAME ="fform">
+<table border="1" align="center"width="70%">
+  <tr>
+    <td width="100%" colspan="2"><H2 ALIGN="center">Transaksi</H2></td>
+  </tr>
+  <tr>
+    <td width="50%"><PRE>
+Judul         :<select name="ijudul" size=1>
+					<option value="Hannibal">Hannibal</option>
+					<option value="Arah Langkah">Arah Langkah</option>
+					</select>
+Kode Buku       :<select name="ikodebuku">
+					<option value="001">001</option>
+					<option value="002">002</option>
+				</select>
+Jumlah Buku :<input type="text" size="11" name="ijumlah" placeholder="Jumlah Buku ....">
+Member       :<input type="checkbox" name="imember">Ya</td></pre>
+    <td width="50%"><pre>
+	Harga Buku  :<input type="text" size="10" name="obuku">
+	Sub Total    :<input type="text" size="10" name="osub">
+	Diskon       :<input type="text" size="10" name="odiskon">
+	Total Bayar  :<input type="text" size="10" name="ototal">
+	</td><pre>
+  </tr>
+  <tr>
+				<td width="100%" colspan="2">
+					Bayar : <input type="text" size="10" name="ibayar"><br>
+					Kembalian : <input type="text" size="10" name="okembalian">
+				</td>
+</tr>
+  <tr>
+    <td width="100%" colspan="2">
+    <center>
+      <INPUT TYPE="button" value="Hitung" onclick="hitungtotal()">
+      <INPUT TYPE="reset" value="Ulang">
+	  <a href="ctkform.html"><INPUT TYPE="button" value="OK" onclick="tekan()"></a>
+					<br>
+    </center>
+	</td>
+  </tr>
+</table> 
+</FORM>
+</BODY>
+</HTML>
