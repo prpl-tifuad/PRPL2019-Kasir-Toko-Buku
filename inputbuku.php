@@ -20,10 +20,12 @@
 		$sql = mysqli_query($connect,$query);
 		
 		echo"INPUT BERHASIL<br>";
-		echo "<a href='tampilbuku.php'>Lihat Hasil</a>";
+		echo "<a href='tampilbuku2.php'>Lihat Hasil</a>";
+		echo "<br>";
 	}
 ?>
 <body>
+<center>
 INPUT DATA BUKU
 <form method="post" action="inputbuku.php">
 	<table>
